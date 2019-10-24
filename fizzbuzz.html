@@ -7,17 +7,17 @@
 
     <body>
 
-        <h2>Welcome, <span id="getUsername"></span></h2> //called username from the login to display
-        <p>Your current FizzBuzz value is: <span id="savedScore"></span></p> //retriving/creating the score of the user
+        <h2>Welcome, <span id="getUsername"></span></h2>
+        <p>Your current FizzBuzz value is: <span id="savedScore"></span></p>
 
         <script>
 
             var user=localStorage.getItem("Username");
             var score = 0, flag = 0;
 
-            document.getElementById("getUsername").innerHTML = user;//username is printed
+            document.getElementById("getUsername").innerHTML = user;
 
-            function get(url) { //get request is written inspired by the given example
+            function get(url) {
                 return new Promise((resolve, reject) => {
                     const http = new XMLHttpRequest();
                     http.onload = function() {
@@ -63,7 +63,7 @@
             });
 
 
-            // the focal function to do the needed
+
             function Play_Game() {
 
                 if (flag == 0) {
@@ -122,7 +122,7 @@
         </script>
 
         <br>
-        //button to increment the score
+
         <button onclick="Play_Game()" id="inc">Click to Increment </button>
 
     </body>
