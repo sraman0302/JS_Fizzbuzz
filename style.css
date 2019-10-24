@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+    font-weight: bold;
+}
+
+#inc {
+    background: cyan;
+    border-radius: 1em;
+}
+
+#inc :hover  {
+    background: cyan;
+}
+
+#demo, #savedScore {
+    background: #E0D3D3;
+    color: red;
+    width: 100px;
+    height 20px;
+}
+button #login {
+    height:20px; 
+    width:100px; 
+    margin: -20px -50px; 
+    position:relative;
+    top:50%; 
+    left:50%;
+}
