@@ -1,75 +1,29 @@
 <html>
-    <head>
-        <title>Login Page for FIZZBUZZ</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="variable.js"></script>
-        <script>
-            function get(url) {
-                return new Promise((resolve, reject) => {
-                    const http = new XMLHttpRequest();
-                    http.onload = function() {
-                        resolve({ status: http.status, data: JSON.parse(http.response) });
-                    };
-                    http.open("GET", url);
-                    http.send();
-                });
-            }
-            function login(){
 
-                console.log(user);
-                var user=document.getElementById("user").value 
-                get("http://basic-web.dev.avc.web.usf.edu/"+user).then(function(response){
-                    //Put all code that relies on the data from this request in here.
+<head>
+    <title>Login Page for FIZZBUZZ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="login_js.js"></script>
+</head>
 
-                    if(response.status == 200){
-                        const username = response.data.id; //The username that was requested. In this case it is "myUserName".
-                        const score = response.data.score; //The user's current score.
-                        console.log(username);
-                        console.log(score);
-                    }
-                    else{
-                        //User "myUserName" not found.
-                        //response.data is null
-                        post("http://basic-web.dev.avc.web.usf.edu/"+user, { score: 0 }); //create a new user.
-                        console.log("123");
-                    }
-                });
-                console.log(user);
-                localStorage.setItem("Username", user);
-            }
+<body>
+    
+    <table width="20%" bgcolor="0099CC" align="center">
+        <tr>
+            <td colspan=2>
+                <center>
+                    <font size=4><b>Fizz Buzz Game Login</b></font>
+                </center>
+            </td>
+        </tr>
 
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" size=25 name="userid" id="user"></td>
 
-            function post(url, data) {
-                data = JSON.stringify(data);
-                return new Promise((resolve, reject) => {
-                    const http = new XMLHttpRequest();
-                    http.onload = function() {
-                        resolve({ status: http.status, data: JSON.parse(http.response) });
-                    };
-                    http.open("POST", url);
-                    //Make sure that the server knows we're sending it json data.
-                    http.setRequestHeader("Content-Type", "application/json");
-                    http.send(data);
-                });
-            }
+        </tr>
+    </table>
 
-        </script>
-    </head>
-    <body>
+    <a href="fizzbuzz.html?user"><button id="login" onclick="login()">Go To Login</button></a>
 
-        <table width="20%" bgcolor="0099CC" align="center">
-
-            <tr>
-                <td colspan=2><center><font size=4><b>Fizz Buzz Game Login</b></font></center></td>
-            </tr>
-
-            <tr>
-                <td>Username:</td>
-                <td><input type="text" size=25 name="userid" id="user"></td>
-
-            </tr>
-        </table>
-
-        <a href="fizzbuzz.html?user"><button id="login" onclick="login()">Go To Login</button></a>
-
-    </body>
+</body>
